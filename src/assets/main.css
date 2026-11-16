@@ -250,8 +250,9 @@ section[id] {
   color: var(--text-main);
   background-color: rgba(18, 20, 26, 0.55);
   /* Com a lupa ligada (glassLens.js) usa o filtro dela, senão fica o blur normal */
-  backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
+  /* O -webkit- vem antes da linha padrão, senão o build joga a padrão fora e o Chrome fica sem blur :( */
   -webkit-backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
+  backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
 }
 
 .hero-button-secondary:hover {

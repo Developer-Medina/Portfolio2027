@@ -85,8 +85,9 @@ const closeMenu = () => {
   border-radius: 999px;
   background-color: rgba(18, 20, 26, 0.55);
   /* Com a lupa ligada (glassLens.js) usa o filtro dela, senão fica o blur normal */
-  backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
+  /* O -webkit- vem antes da linha padrão, senão o build joga a padrão fora e o Chrome fica sem blur :( */
   -webkit-backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
+  backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
@@ -120,8 +121,8 @@ const closeMenu = () => {
 .site-menu.open .site-menu-pill {
   background-color: transparent;
   box-shadow: none;
-  backdrop-filter: blur(0) saturate(100%);
   -webkit-backdrop-filter: blur(0) saturate(100%);
+  backdrop-filter: blur(0) saturate(100%);
 }
 
 .site-menu.open .site-menu-pill::before {
@@ -221,8 +222,8 @@ const closeMenu = () => {
     rgba(10, 12, 18, 0.55) 45%,
     rgba(10, 12, 18, 0.7) 100%
   );
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 
   /* Escondido por opacidade e visibilidade, porque display não anima */
   opacity: 0;

@@ -1,8 +1,8 @@
 // ------------ Lupa de vidro ------------
-// Efeito de "liquid glass": o que passa por trás do vidro fica 10% maior, além do blur
+// Efeito de "liquid glass": o que passa por trás do vidro fica 15% maior, além do blur
 // Só funciona no Chrome, Edge e Android (filtro SVG no backdrop-filter). No Safari fica só o blur :/
 
-const ZOOM = 0.1
+const ZOOM = 0.15
 const BLUR = 8
 const SVG_NS = 'http://www.w3.org/2000/svg'
 
@@ -35,7 +35,7 @@ const createLensMap = (width, height) => {
   return canvas.toDataURL()
 }
 
-// Cria o filtro SVG de um elemento: amplia, desfoca e satura, nessa ordem
+// Cria o filtro SVG de um elemento: amplia, desfoca, satura e deixa tudo opaco, nessa ordem
 const createLensFilter = (id) => {
   if (!filterHolder) {
     filterHolder = document.createElementNS(SVG_NS, 'svg')
@@ -48,11 +48,15 @@ const createLensFilter = (id) => {
   const filter = document.createElementNS(SVG_NS, 'filter')
   filter.id = id
   filter.setAttribute('color-interpolation-filters', 'sRGB')
+  // Sem o último passo, a borda do blur fica semitransparente e o texto nítido de trás aparece por ela :(
   filter.innerHTML = `
     <feImage result="map" preserveAspectRatio="none" />
     <feDisplacementMap in="SourceGraphic" in2="map" xChannelSelector="R" yChannelSelector="G" />
-    <feGaussianBlur stdDeviation="${BLUR}" />
+    <feGaussianBlur stdDeviation="${BLUR}" edgeMode="duplicate" />
     <feColorMatrix type="saturate" values="1.6" />
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="1 1" />
+    </feComponentTransfer>
   `
   filterHolder.appendChild(filter)
   return filter

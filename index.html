@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Sem isso, o iPhone transforma datas como "07/2024 – 04" em links azuis -->
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <title>Medina · Desenvolvedor de software</title>
+    <meta
+      name="description"
+      content="Medina, desenvolvedor de software. Python, Java e Vue.js. Responsável pelo ERP Odoo 18 da Zasso e pela camada de IA que atende esses sistemas."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- O motor do agente de IA usa o THREE global (r128), então ele carrega antes do app -->
+    <script src="/vendor/three.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

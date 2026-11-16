@@ -1,0 +1,18 @@
+/* Regras do avatar de IA. Ficam globais porque o motor cria esses elementos por fora do Vue */
+.o_ai_avatar { position: relative; display: inline-block; flex: none; width: var(--aia-s, 44px); height: var(--aia-s, 44px); overflow: visible; vertical-align: top; }
+.o_ai_avatar .aia-canvas-host { position: absolute; pointer-events: none; filter: drop-shadow(0 3px 7px rgba(20,24,34,.32)) drop-shadow(0 1px 1.5px rgba(20,24,34,.22)); }
+.o_ai_avatar .aia-canvas-host canvas { position: absolute; inset: 0; display: block; width: 100% !important; height: 100% !important; }
+.o_ai_avatar .aia-canvas-host .aia-layer-waves { filter: blur(var(--aia-wave-blur, .3px)) drop-shadow(calc(-.5 * var(--aia-fr)) calc(-.38 * var(--aia-fr)) calc(.5 * var(--aia-fr)) rgba(90,150,255,.28)) drop-shadow(calc(.5 * var(--aia-fr)) calc(.38 * var(--aia-fr)) calc(.5 * var(--aia-fr)) rgba(255,180,60,.25)); }
+.o_ai_avatar .aia-dots { position: absolute; width: 0; height: 0; pointer-events: none; z-index: 4; opacity: 0; }
+.o_ai_avatar .aia-dots.aia-show { opacity: 1; }
+.o_ai_avatar .aia-dots span { position: absolute; border-radius: 50%; background: radial-gradient(circle at 38% 34%, #ffffff 0%, #eef4ff 55%, #fff6dd 100%); }
+.o_ai_avatar .aia-status { position: absolute; white-space: nowrap; pointer-events: none; z-index: 5; transform: translateY(-50%); opacity: 0; transition: opacity .22s ease; }
+.o_ai_avatar .aia-status.aia-show { opacity: 1; }
+.o_ai_avatar .aia-status span { --aia-b: #687087; --aia-hi: #a4aabb; display: inline-block; font-weight: 500; line-height: 1.4;
+  background: linear-gradient(100deg, var(--aia-b) 0%, var(--aia-b) 38%, var(--aia-hi) 50%, var(--aia-b) 62%, var(--aia-b) 100%); background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: aiaShimmer 2.6s linear infinite;
+  transition: opacity .34s ease, filter .34s ease; filter: blur(0px); }
+.o_ai_avatar .aia-status span.aia-fading { opacity: 0; filter: blur(6px); }
+.o_ai_avatar.aia-text-light .aia-status span { --aia-b: #cdb894; --aia-hi: #fff3dc; }
+@keyframes aiaShimmer { 0% { background-position: 100% 0; } 100% { background-position: -120% 0; } }
+@media (prefers-reduced-motion: reduce) { .o_ai_avatar .aia-status span { animation: none; } }

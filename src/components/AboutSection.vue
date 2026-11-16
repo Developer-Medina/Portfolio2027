@@ -28,6 +28,7 @@ const stats = [
     <div class="about-bento">
       <article class="about-card about-card-photo">
         <img class="about-photo" :src="profilePhoto" alt="Foto do Medina" />
+        <p class="about-photo-title">Esse sou eu :)</p>
       </article>
 
       <AgentCard />
@@ -119,6 +120,27 @@ const stats = [
   height: 100%;
   object-fit: cover;
   object-position: 50% 12%;
+}
+
+/* Sombra embaixo da foto, para o título ficar legível em cima dela */
+.about-card-photo::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 0 0;
+  background: linear-gradient(0deg, rgba(10, 12, 18, 0.75) 0%, rgba(10, 12, 18, 0) 100%);
+  pointer-events: none;
+}
+
+/* Legenda leve no canto de baixo da foto, um branco com um pouco de transparência */
+.about-photo-title {
+  position: absolute;
+  left: 1.75rem;
+  bottom: 1.5rem;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(243, 243, 247, 0.85);
+  text-box: trim-both cap alphabetic;
 }
 
 /* Números: grade de 2 colunas no celular, 3 do tablet em diante */

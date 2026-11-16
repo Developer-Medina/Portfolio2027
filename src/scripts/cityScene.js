@@ -19,7 +19,7 @@ export function startCityScene(hero, pub) {
   const TAU = Math.PI * 2;
   const fr = x => x - Math.floor(x), c01 = x => x < 0 ? 0 : x > 1 ? 1 : x;
   const mixc = (a, b, f) => [a[0]+(b[0]-a[0])*f, a[1]+(b[1]-a[1])*f, a[2]+(b[2]-a[2])*f];
-  const MASK_SCENE_MOB = 'linear-gradient(180deg,transparent 20%,rgba(0,0,0,.08) 30%,rgba(0,0,0,.3) 40%,rgba(0,0,0,.6) 50%,rgba(0,0,0,.86) 60%,#000 70%)';   // some antes do texto
+  const MASK_SCENE_MOB = 'linear-gradient(180deg,transparent 0,rgba(0,0,0,.08) 14px,rgba(0,0,0,.2) 30px,rgba(0,0,0,.32) 44px,rgba(0,0,0,.4) 52px,rgba(0,0,0,.52) 20%,rgba(0,0,0,.64) 35%,rgba(0,0,0,.8) 50%,rgba(0,0,0,.93) 60%,#000 70%)';   // celular: sobe aos poucos até pouco abaixo do ∞ e depois chega suave ao fim de antes
 
   // halo pronto em imagem (cache por cor arredondada)
   const HALO = new Map();

@@ -3,6 +3,13 @@
 // Sem github, o card mostra "Privado" (código da empresa)
 const projects = [
   {
+    title: 'Portfólio 2027',
+    description:
+      'O portfólio deste ano, pensado para ser leve e para refletir a minha identidade visual.',
+    stack: 'Vue.js · Vite · WebGL',
+    github: 'https://github.com/Developer-Medina/Portfolio2027',
+  },
+  {
     title: 'ERP e IA na Zasso',
     description: 'Módulos Odoo sob medida, da operação ao marketing, e IA local no Google Cloud.',
     stack: 'Python · Odoo · pgvector',
@@ -18,12 +25,6 @@ const projects = [
     description: 'API REST com Spring Boot e PostgreSQL, que servia o portfólio anterior.',
     stack: 'Java · Spring Boot · PostgreSQL',
     github: 'https://github.com/Developer-Medina/Portfolio-API',
-  },
-  {
-    title: 'DAO com JDBC',
-    description: 'Padrão DAO em Java puro, com JDBC e SQL escrito à mão.',
-    stack: 'Java · JDBC · SQL',
-    github: 'https://github.com/Developer-Medina/DAO-JDBC-demo',
   },
   {
     title: 'JWST MIRI Monitor',

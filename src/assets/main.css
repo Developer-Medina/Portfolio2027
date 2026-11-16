@@ -249,8 +249,9 @@ section[id] {
 .hero-button-secondary {
   color: var(--text-main);
   background-color: rgba(18, 20, 26, 0.55);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  /* Com a lupa ligada (glassLens.js) usa o filtro dela, senão fica o blur normal */
+  backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
+  -webkit-backdrop-filter: var(--glass-filter, blur(8px) saturate(160%));
 }
 
 .hero-button-secondary:hover {
